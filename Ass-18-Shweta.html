@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar Using JS</title>
+    <link rel="stylesheet" href="SAss-18.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        function check(){
+            var menu=document.getElementById('menu');
+            var nav=document.getElementById('nav');
+            var icon=document.getElementById('icon');
+            if(icon.classList.contains('fa-bars')){
+                nav.classList.remove("nav");
+                nav.classList.add("mobile_view"); 
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+                icon.style.animation="rotate2 linear 0.7s";
+            }
+            else{
+                nav.classList.remove("mobile_view");
+                nav.classList.add("nav"); 
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+                icon.style.animation="rotate1 linear 0.7s";
+            }
+        }
+        function clearData(){
+            var nav=document.getElementById('nav');
+            var icon=document.getElementById('icon');
+            nav.classList.remove("mobile_view");
+            nav.classList.add("nav"); 
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+            icon.style.animation="rotate1 linear 0.7s";
+        }
+    </script>
+</head>
+<body >
+    <div class="header">
+        <h1>Lead<span>Soft</span></h1>
+        <button id="menu" onclick="check()">
+            <i class="fa-solid fa-bars" id="icon"></i>
+        </button>
+        <div class="nav" id="nav">
+            <a href="#home" onclick="clearData()">Home</a>
+            <a href="#about" onclick="clearData()">About</a>
+            <a href="#services" onclick="clearData()">Services</a>
+            <a href="#products" onclick="clearData()">Products</a>
+            <a href="#contact" onclick="clearData()">Contact</a>
+        </div>
+    </div>
+
+    <div class="container" id="home">
+        Home Page
+    </div>
+    <div class="container" id="about">
+        About Page
+    </div>
+    <div class="container" id="services">
+        Service Page
+    </div>
+    <div class="container" id="products">
+        Product Page
+    </div>
+    <div class="container" id="contact">
+        Contact Page
+    </div>
+</body>
+</html>
